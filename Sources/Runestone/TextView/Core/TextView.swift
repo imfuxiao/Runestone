@@ -590,7 +590,7 @@ open class TextView: UIScrollView {
         textSearchingHelper.findInteraction
     }
 
-    private let textInputView: TextInputView
+    public let textInputView: TextInputView
     private let editableTextInteraction = UITextInteraction(for: .editable)
     private let nonEditableTextInteraction = UITextInteraction(for: .nonEditable)
     @available(iOS 16.0, *)
