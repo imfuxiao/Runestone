@@ -4,30 +4,47 @@
 import PackageDescription
 
 let package = Package(
-    name: "Runestone",
-    defaultLocalization: "en",
-    platforms: [
-        .iOS(.v14)
-    ],
-    products: [
-        .library(name: "Runestone", targets: ["Runestone"])
-    ],
-    dependencies: [
-        .package(url: "https://github.com/tree-sitter/tree-sitter", .upToNextMinor(from: "0.20.9"))
-    ],
-    targets: [
-        .target(name: "Runestone", dependencies: [
-            .product(name: "TreeSitter", package: "tree-sitter")
-        ], resources: [
-            .copy("PrivacyInfo.xcprivacy"),
-            .process("TextView/Appearance/Theme.xcassets")
-        ]),
-        .target(name: "TestTreeSitterLanguages", cSettings: [
-            .unsafeFlags(["-w"])
-        ]),
-        .testTarget(name: "RunestoneTests", dependencies: [
-            "Runestone",
-            "TestTreeSitterLanguages"
-        ])
-    ]
+  name: "Runestone",
+  defaultLocalization: "en",
+  platforms: [
+    .iOS(.v14)
+  ],
+  products: [
+    .library(name: "Runestone", targets: ["Runestone"])
+  ],
+  dependencies: [
+    //    .package(
+    //      url: "https://github.com/tree-sitter/tree-sitter",
+    //      .upToNextMinor(from: "0.20.9")
+    //    )
+    .package(
+      url: "https://github.com/imfuxiao/tree-sitter",
+      .exact("0.26.101")
+    )
+  ],
+  targets: [
+    .target(
+      name: "Runestone",
+      dependencies: [
+        .product(name: "TreeSitter", package: "tree-sitter")
+      ],
+      resources: [
+        .copy("PrivacyInfo.xcprivacy"),
+        .process("TextView/Appearance/Theme.xcassets"),
+      ]
+    ),
+    .target(
+      name: "TestTreeSitterLanguages",
+      cSettings: [
+        .unsafeFlags(["-w"])
+      ]
+    ),
+    .testTarget(
+      name: "RunestoneTests",
+      dependencies: [
+        "Runestone",
+        "TestTreeSitterLanguages",
+      ]
+    ),
+  ]
 )
