@@ -3,11 +3,11 @@
     "pins": [
       {
         "package": "TreeSitter",
-        "repositoryURL": "https://github.com/tree-sitter/tree-sitter",
+        "repositoryURL": "https://github.com/imfuxiao/tree-sitter",
         "state": {
           "branch": null,
-          "revision": "98be227227af10cc7a269cb3ffb23686c0610b17",
-          "version": "0.20.9"
+          "revision": "6a0ebb535280232d734f3badd7e651d07106967b",
+          "version": "0.26.102"
         }
       }
     ]
